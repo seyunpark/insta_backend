@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+
     'accounts',
 ]
 
@@ -77,27 +82,27 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'instaclone_backend',
-        'USER': 'root',
-        'PASSWORD':'winddog7019',
-        'HOST' : 'localhost',
-        'PORT' : '3306'
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'instaclone',
-#         'USER': 'WindDog',
+#         'NAME': 'instaclone_backend',
+#         'USER': 'root',
 #         'PASSWORD':'winddog7019',
-#         'HOST' : 'instaclone.ciozbywbnihn.ap-northeast-2.rds.amazonaws.com',
+#         'HOST' : 'localhost',
 #         'PORT' : '3306'
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'instaclone_backend', ## DB 이름
+        'USER': 'instaclone',
+        'PASSWORD':'winddog7019',
+        'HOST' : 'instaclone.ciozbywbnihn.ap-northeast-2.rds.amazonaws.com',
+        'PORT' : '3306'
+    }
+}
 
 
 # Password validation
@@ -146,6 +151,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 
