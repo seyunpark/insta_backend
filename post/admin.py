@@ -19,3 +19,4 @@ class PostAdmin(admin.ModelAdmin):
 
     def nickname(request, post):
         return post.author.profile.nickname
+

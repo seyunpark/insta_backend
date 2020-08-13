@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, render
 from .models import Post
 
+
 def post_list(request):
 
     post_list = Post.objects.all()
@@ -13,10 +14,10 @@ def post_list(request):
 
         return render(request, 'post/post_list.html', {
             'user_profile': user_profile,
-            'posts' : post_list,
+            'posts': post_list,
         })
     else:
-        return render(request, 'post/post_list.html',{
-            'posts' : post_list,
+        return render(request, 'post/post_list.html', {
+            'posts': post_list,
         })
 

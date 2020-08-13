@@ -13,9 +13,6 @@ def user_path(instance,filename):
     return 'accounts/{}/{}.{}'.format(instance.user.username,pid,extension)
 
 
-
-# Create your models here.
-
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nickname = models.CharField('별명', max_length=20, unique=True)
