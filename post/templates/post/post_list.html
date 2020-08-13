@@ -29,8 +29,15 @@
                             {% endif %}
                         </div>
                         <div class="user_name">
-                            <div class="nick_name m_text">WindDog</div>
+                            <div class="nick_name m_text">{{ post.author.profile.nickname }} {{ post.id }} </div>
                             <div class="country s_text">JinJu, South Korea</div>
+                        </div>
+                        <div>
+                            <form action="{% url 'post:post_delete' post.pk %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="삭제">
+                            </form>
+
                         </div>
 
                     </div>
@@ -46,7 +53,7 @@
 
                 <div class="img_section">
                     <div class="trans_inner">
-                        <div><img src="imgs/img_section/img01.jpg" alt="visual01"></div>
+                        <div><img src="{{ post.photo.url }}" alt="visual01"></div>
                     </div>
                 </div>
 
@@ -83,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="timer">1시간 전</div>
+                <div class="timer">{{ post.created_at|timesince }}전</div>
 
                 <div class="comment_field" id="add-comment-post-37">
                     <input type="text" placeholder="댓글달기...">
@@ -96,15 +103,26 @@
 
         <input type="hidden" id="page" value="0">
         <div class="side_box">
+            {% if user_profile %}
             <div class="user_profile">
                 <div class="profile_thumb">
-                    <img src="imgs/thumb.jpeg" alt="프로필사진">
+                    <img src="{{ user_profile.picture.url}}" alt="프로필사진">
                 </div>
                 <div class="detail">
-                    <div class="id m_text">WindDog</div>
-                    <div class="ko_name">박세윤</div>
+                    <div class="id m_text">{{ user_profile.user }}</div>
+                    <div class="ko_name">{{ user_profile.nickname }}</div>
                 </div>
             </div>
+            {% else %}
+            <div class="user_profile">
+                <div class="profile_thumb">
+                    <img src="{% static 'imgs/thumb.jpeg' %}" alt="프로필사진">
+                </div>
+                <div class="detail">
+                </div>
+            </div>
+
+            {% endif %}
 
             <article class="story">
                 <header class="story_header">
@@ -115,10 +133,10 @@
                 <div class="scroll_inner">
                     <div class="thumb_user">
                         <div class="profile_thumb">
-                            <img src="imgs/thumb02.jpg" alt="프로필사진">
+                            <img src="{{ user_profile.picture.url}}" alt="프로필사진">
                         </div>
                         <div class="detail">
-                            <div class="id">WindDog</div>
+                            <div class="id">{{ user_profile.nickname }}</div>
                             <div class="time">1시간 전</div>
                         </div>
                     </div>
@@ -133,10 +151,10 @@
 
                 <div class="thumb_user">
                     <div class="profile_thumb">
-                        <img src="imgs/thumb02.jpg" alt="프로필사진">
+                        <img src="{{ user_profile.picture.url}}" alt="프로필사진">
                     </div>
                     <div class="detail">
-                        <div class="id">WindDog</div>
+                        <div class="id">{{ user_profile.nickname }}</div>
                         <div class="time">1시간 전</div>
                     </div>
                 </div>
