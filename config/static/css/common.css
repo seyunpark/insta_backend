@@ -103,6 +103,7 @@ body {
     background: url('../imgs/4f7ac8e0a402.png') no-repeat -239px -202px;
     width: 24px;
     height: 24px;
+    margin-left: -5px;
 }
 
 .sprite_share_icon {
@@ -110,6 +111,7 @@ body {
     background: url('../imgs/4f7ac8e0a402.png') no-repeat -324px -52px;
     width: 21px;
     height: 24px;
+    margin-left: 5px;
 }
 
 .sprite_bookmark_outline {
