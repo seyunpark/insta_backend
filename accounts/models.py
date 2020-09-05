@@ -25,6 +25,7 @@ class Profile(models.Model):
                                   format='JPEG',
                                   options={'quality' :90},
                                   blank=True,
+                                  null=True,
                                   )
     about = models.CharField(max_length=300, blank=True)
     GENDER_C = (
