@@ -19,7 +19,9 @@ class SignupForm(UserCreationForm):
     }))
 
     nickname = forms.CharField(label='닉네임')
-    picture = forms.ImageField(label='프로필 사진', required=False, blank=True, null=True)
+    picture = forms.ImageField(label='프로필 사진', required=False)
+
+
 
     class Meta(UserCreationForm.Meta):
         fields = UserCreationForm.Meta.fields + ('email',)
@@ -40,7 +42,7 @@ class SignupForm(UserCreationForm):
     def clean_picture(self):
         picture = self.cleaned_data.get('picture')
         if not picture:
-            picture = None
+            picture = "../../../config/static/imgs/img_section/img05.jpg"
         return picture
 
     def save(self):

@@ -26,6 +26,7 @@ class Profile(models.Model):
                                   options={'quality' :90},
                                   blank=True,
                                   null=True,
+
                                   )
     about = models.CharField(max_length=300, blank=True)
     GENDER_C = (
@@ -34,6 +35,8 @@ class Profile(models.Model):
         ('남성', '남성'),
     )
 
+
+
     gender = models.CharField('성별(선택사항)',
                               max_length=10,
                               choices=GENDER_C,
@@ -41,6 +44,8 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.nickname
+
+
 
     @property
     def get_follower(self):
