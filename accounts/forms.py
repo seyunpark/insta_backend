@@ -42,7 +42,7 @@ class SignupForm(UserCreationForm):
     def clean_picture(self):
         picture = self.cleaned_data.get('picture')
         if not picture:
-            picture = "{% static 'imgs/thumb.jpeg' %}"
+            picture = None
         return picture
 
     def save(self):
