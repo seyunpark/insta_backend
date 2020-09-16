@@ -162,7 +162,7 @@
             {% if user_profile %}
             <div class="user_profile">
                 <div class="profile_thumb">
-                    {% if user.is_profile.picture %}
+                    {% if user.profile.picture %}
                     <img src="{{ user_profile.picture.url}}" alt="프로필사진">
                     {% else %}
                     <img src="{% static 'imgs/thumb.jpeg' %}" alt="프로필사진">
