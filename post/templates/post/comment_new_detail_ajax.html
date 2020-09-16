@@ -1,5 +1,7 @@
 <div class="user_container-detail" id="comment{{ comment.id }}">
-    <div class="user"><img src="{{ comment.author.profile.picture.url }}" alt="user"></div>
+    <div class="user">
+        <img src="{{ comment.author.profile.picture.url }}" alt="user">
+    </div>
     <div class="comment">
         <span class="user_id">{{ comment.author.profile.nickname }}</span>
         <span>{{ comment.content }}</span>
