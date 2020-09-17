@@ -91,7 +91,12 @@
 
                 <div class="img_section">
                     <div class="trans_inner">
+                        {% if post.photo %}
                         <div><img src="{{ post.photo.url }}" alt="visual01"></div>
+                        {% else %}
+                        <div><img src="http://lorempixel.com/400/200" alt="visual01"></div>
+                        {% endif %}
+
                     </div>
                 </div>
 
@@ -195,7 +200,11 @@
                     {% for post in following_post_list %}
                     <div class="thumb_user">
                         <div class="profile_thumb">
+                            {% if post.photo %}
                             <img src="{{ post.photo.url }}" alt="프로필사진">
+                            {% else %}
+                            <img src="http://lorempixel.com/400/200" alt="프로필사진">
+                            {% endif %}
                         </div>
                         <div class="detail">
                             <div class="id">{{ post.content }}</div>
@@ -216,7 +225,11 @@
 
                 <div class="thumb_user">
                     <div class="profile_thumb">
+                        {% if post.photo %}
                         <img src="{{ post.photo.url }}" alt="프로필사진">
+                        {% else %}
+                        <img src="http://lorempixel.com/400/200" alt="프로필사진">
+                        {% endif %}
                     </div>
                     <div class="detail">
                         <div class="id">{{ post.content }}</div>
