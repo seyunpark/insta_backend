@@ -56,10 +56,13 @@
 
         <div class="mylist_contents contents_container active">
 
-            {% for post in post_list %}
 
             <div class="pic">
+                {% if post.photo %}
                 <a href="#"><img src="{{ post.photo.url }}" alt=""></a>
+                {% else %}
+                <img src="http://lorempixel.com/400/200" alt="프로필사진">
+                {% endif %}
             </div>
             {% endfor %}
 
@@ -68,13 +71,13 @@
         <div class="bookmark_contents contents_container">
 
             {% for post in all_post_list %}
-                {% for bookmark_user in post.bookmark_user_set.all %}
-                <div class="pic">
-                    {% if user == bookmark_user.profile.user %}
-                        <a href="#"><img src="{{ post.photo.url }}" alt=""></a>
-                    {% endif %}
-                </div>
-                {% endfor %}
+            {% for bookmark_user in post.bookmark_user_set.all %}
+            <div class="pic">
+                {% if user == bookmark_user.profile.user %}
+                <a href="#"><img src="{{ post.photo.url }}" alt=""></a>
+                {% endif %}
+            </div>
+            {% endfor %}
             {% endfor %}
         </div>
 
@@ -85,5 +88,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="{% static 'js/profile.js' %}"></script>
+<script src="{% static 'js/profile.js' %}"></script>
 {% endblock %}
